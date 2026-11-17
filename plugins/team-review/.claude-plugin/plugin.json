@@ -1,0 +1,10 @@
+{
+  "name": "team-review",
+  "version": "0.1.0",
+  "description": "Review governance for teams that merge many agent-written PRs: risk-based approval tiers, review-gate audits, reviewer evals built from incidents, and turning recurring misses into rules. Assumes CODEOWNERS, several reviewers and an incident history.",
+  "author": {
+    "name": "Mustafa Genç"
+  },
+  "license": "MIT",
+  "keywords": ["code-review", "governance", "risk", "evals", "incidents"]
+}

@@ -1,76 +1,104 @@
 ---
 name: argument-analysis
-description: Evaluate an argument end to end by asking a fixed sequence of critical questions — issue and conclusion, reasons, ambiguous words, value and descriptive assumptions, fallacies, evidence, rival causes, statistics, omitted information, and reasonable alternative conclusions. Use when asked to critique, assess or "think critically about" an article, proposal, RFC, design doc, pitch, vendor claim, research summary, AI-generated answer, or any text that tries to persuade.
+description: Critique an argument, or your own position, with a fixed sequence of critical questions — conclusion and reasons, ambiguous terms, hidden assumptions, fallacies, evidence quality, deceptive statistics, omissions and alternative conclusions. Use when asked to critique or "poke holes in" an RFC, design doc, proposal, vendor claim, benchmark, study or AI answer, or to steelman the other side of your own recommendation.
 ---
 
 # argument-analysis
 
-Read like a gold panner, not a sponge. A sponge absorbs everything it reads; a panner keeps asking questions and keeps only what survives them. The aim is not to win against the author, but to decide what is worth believing and acting on.
+Read like a gold panner, not a sponge: keep asking questions and keep only what survives them. The aim is to decide what is worth believing and acting on, not to win.
 
-Apply the same standard to arguments you like as to arguments you dislike. Critical thinking used only against the other side is the weak kind.
+Apply the same standard to arguments you like as to ones you dislike, including your own. Critical thinking used only against the other side is the weak kind.
 
 ## The questions, in order
 
-Work through them in sequence; each one builds on the last. Write short answers, citing the text.
+Work through them in sequence. Write short answers that cite the text. Skip a step only when it clearly doesn't apply, and say so.
 
-### 1. What are the issue and the conclusion?
-- **Issue**: the question the text is answering. Is it descriptive ("what is / was / will be true?") or prescriptive ("what should we do?").
-- **Conclusion**: the claim the author wants you to accept. Look for it in the title, opening and closing, and after words like *therefore, so, thus, this shows, we should*.
-- If you can't find a conclusion, there is nothing to evaluate yet — say so.
+### 1. Issue and conclusion
+- **Issue**: the question being answered. Descriptive ("what is true?") or prescriptive ("what should we do?")?
+- **Conclusion**: the claim you are asked to accept. Look in the title, opening, closing, and after *therefore, so, this shows, we should*.
+- No conclusion means nothing to evaluate yet. Say so.
 
-### 2. What are the reasons?
-- List each reason offered for the conclusion: beliefs, evidence, analogies, principles. Look after *because, since, given that, studies show*.
-- Lay the structure out explicitly: `Reason 1 → Reason 2 → Conclusion`. Reasons come first: a conclusion without reasons is an opinion, not an argument.
+### 2. Reasons
+List each reason and lay out the structure: `Reason 1 → Reason 2 → Conclusion`. A conclusion without reasons is an opinion.
 
-### 3. What words or phrases are ambiguous?
-- Find the key terms in the issue, reasons and conclusion — especially abstract ones (*secure, scalable, fair, simple, productive, best practice*).
-- For each, ask: could it reasonably mean two different things, and would the argument's strength change depending on which? If yes, the argument can't be judged until it's pinned down.
+### 3. Ambiguous terms
+For each key abstract word (*secure, scalable, simple, fast, fair, best practice*), write two reasonable readings. If the argument only works under one, that reading is an assumption. Ask whether a definition was chosen to make the conclusion easier.
 
-### 4–5. What are the assumptions? (use `assumption-finder` for depth)
-- **Value assumptions**: which value does the author rank above another (e.g. speed over safety, autonomy over consistency)?
-- **Descriptive assumptions**: what unstated beliefs about how the world *is* must be true for the reasons to support the conclusion?
+### 4. Hidden assumptions
+- **Value assumptions**: which value is ranked above another *here*? Common engineering conflicts: delivery speed vs quality, autonomy vs consistency, flexibility vs simplicity, short-term cost vs maintainability, innovation vs stability, privacy vs insight. Test: if the opposite value came first, would the conclusion change?
+- **Descriptive assumptions**: for each reason → conclusion link, ask "if this reason is true, what else must be true for the conclusion to follow?" and "how could the conclusion still be false?" Typical ones in tech work:
+  - the past trend continues (traffic, adoption, prices),
+  - users behave like the team does,
+  - the metric reflects the goal,
+  - a fix here doesn't move the problem elsewhere,
+  - what worked elsewhere works here,
+  - the dependency, vendor or API stays available and unchanged,
+  - the estimate includes integration, migration and rollout.
 
-### 6. Are there fallacies in the reasoning? (see `fallacy-check`)
-Check whether any reason depends on a flawed assumption, a diversion, or a trick such as begging the question.
+Rate each assumption **plausible / questionable / unknown**. Name the 1–3 that would most change the conclusion if false, and the cheapest way to test each (a spike, a query, a benchmark, a user interview).
 
-### 7. How good is the evidence? (see `evidence-check`)
-Classify each factual claim by its source (intuition, personal experience, examples, testimonials, authority, observation, research, analogy) and judge how dependable it is.
+### 5. Fallacies
+Quote the sentence, name the fallacy, and say how much it matters. A fallacy shows a reason is bad, not that the conclusion is false. Don't over-label.
 
-### 8. Are there rival causes? (see `rival-causes`)
-Whenever the argument claims X caused Y, list other plausible explanations.
+| Fallacy | Tech example |
+|---|---|
+| Attacking the person | "Of course the frontend team wants a rewrite." |
+| Plausible story taken as fact | "Users probably churn because onboarding is long." (never checked) |
+| Slippery slope | "One lint exception and the codebase will rot." |
+| Perfect-solution demand | "2FA doesn't stop all phishing, so why bother?" |
+| Appeal to popularity / authority | "Everyone uses microservices now." "A famous founder says tests are a waste." |
+| Straw person | "So you want zero code review?" |
+| False dilemma | "Either we rewrite it or live with it forever." |
+| Explaining by naming | "It failed because of technical debt." |
+| Glittering generalities | "Modern, clean and future-proof." |
+| Red herring | Answering a security concern with the launch date. |
+| Begging the question | "Best framework because it's superior to the others." |
 
-### 9. Are any statistics deceptive? (see `evidence-check`)
-Check what the numbers actually measure, which average is used, missing baselines, and whether the numbers prove the conclusion or something nearby.
+### 6. Evidence
+For each factual claim, name the evidence type and its main risk:
 
-### 10. What significant information is omitted?
-Every argument is incomplete, and a coherent story feels convincing however little information it rests on. Ask what would change your judgment if you knew it:
-- the strongest counterarguments and contrary evidence,
-- other definitions of key terms,
-- other values or perspectives,
-- where the "facts" came from,
-- the actual numbers behind words like *most, many, significant, faster*,
-- costs, side effects, long-term or second-order effects,
-- who benefits from the conclusion being accepted.
+| Type | Ask |
+|---|---|
+| Intuition | Is the domain regular, and did this person get long practice with fast feedback in it? If not, it's a hypothesis. |
+| Personal experience, anecdotes, testimonials | How were the cases picked? How many counter-cases exist? Any incentive? |
+| Authority | Expert in *this*? Track record, not reputation? Do other experts agree? Who pays them? |
+| Benchmarks, surveys, studies | Sample size and selection, exact measure or question wording, replication, who ran it, and whether it was run on a workload like yours. |
+| Analogies | List the differences too. Do they matter to the conclusion? |
 
-### 11. What reasonable conclusions are possible?
-- Avoid either/or framing. List several conclusions the same reasons could support.
-- Use **if-clauses**: "If the priority is cost, then A; if it is reliability, then B."
-- State which conclusion is best supported, and how strongly.
+### 7. Statistics
+- Could anyone actually know this number? How was it counted?
+- Mean, median or percentile? A mean hides skew. Ask for p50/p95 for latency.
+- Relative vs absolute change ("doubled" from 1 to 2), missing baseline or denominator, cherry-picked window, truncated axis, survivorship.
+- Small samples produce extreme results by chance. Extreme results are usually followed by ordinary ones (regression to the mean).
+- Does the number prove the conclusion, or something next to it? (More sign-ups ≠ more retained users. Fewer reported bugs ≠ fewer bugs.)
+- For causal claims, use `rival-causes`.
+
+### 8. What's missing
+What would change your judgment if you knew it? The strongest counterargument, the real numbers behind *most, many, significantly*, costs and second-order effects, and who benefits if the conclusion is accepted.
+
+### 9. Reasonable conclusions
+Avoid either/or. Use if-clauses: "If the priority is cost, A; if it is reliability, B." Say which is best supported and how strongly.
+
+## When the position is your own
+
+Run the same questions, then:
+- **Steelman** the other side as its best advocate would. If you can't make a convincing case against yourself, you don't understand the issue well enough yet.
+- **Check the speed bumps**: Did I decide before gathering reasons? Am I trusting a source because I like something else about it (halo)? What evidence would change my mind, and did I look for it? Am I over-weighting the last outage or one loud user? Did I swap the hard question for an easier one? Would I reach this conclusion if I didn't want it to be true?
+- **Rewrite for a critical reader**: conclusion first, reasons with sources, key terms defined, value priorities explicit, strongest counterargument acknowledged, confidence stated.
+
+If the critique changes the conclusion, say so plainly.
 
 ## Output
 
 ```markdown
-**Issue:** …
-**Conclusion:** …
+**Issue / Conclusion:** …
 **Reasons:** 1) … 2) …
-**Ambiguities:** term — readings — does it matter?
-**Assumptions:** value: … / descriptive: …
-**Fallacies:** …
-**Evidence quality:** claim — source type — strength
-**Rival causes / statistics:** …
-**Omitted:** …
+**Critical assumptions:** assumption — status — how to test
+**Fallacies:** quote — name — impact (high / low)
+**Evidence:** claim — type — strength (strong / moderate / weak / none)
+**Statistics / missing information:** …
 **Reasonable conclusions:** if …, then …
-**Verdict:** what to accept, reject, or hold until more is known — and what would change your mind.
+**Verdict:** accept / reject / hold — and what would change it
 ```
 
-Keep the tone fair. Name strengths as well as weaknesses; acknowledge good reasoning wherever it appears.
+Name strengths as well as weaknesses. Prefer checking a primary source over trusting a summary, and say when you couldn't verify something.

@@ -24,7 +24,7 @@ Fill in this checklist with ✅ / ⚠️ / ❌ and a one-line note each:
 - Short `CLAUDE.md` listing the commands that verify a change
 - Hooks that run formatter and linter (see `.claude/settings.json`)
 - A project `verify` skill (see `verify-setup`)
-- Local review: `/code-review`, `/security-review` or `review-loop`
+- Local review: `/code-review` and `/security-review`
 - `REVIEW.md` (see `review-md`)
 
 **On every PR**

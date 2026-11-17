@@ -1,6 +1,6 @@
 ---
 name: reliability-checklist
-description: Check a diff against a project's reliability checklist, running only the items whose trigger matches the diff, or create/extend that checklist. Use before committing or opening a PR, when reviewing a change, when the user mentions past incidents or "things that always break", or when asked to set up a reliability checklist.
+description: Check a diff against a project's reliability checklist, running only the items whose trigger matches the diff, or create/extend that checklist. Use when the repo has a reliability checklist and the user asks to check a change against it, when the user mentions past incidents or "things that always break", or when asked to set up a reliability checklist.
 ---
 
 # reliability-checklist
@@ -51,7 +51,7 @@ Sources for items: postmortems, reverted PRs, hotfixes, recurring review comment
 - Phrase a diff-readable trigger and a concrete check.
 - Prefer one sharp item over a vague broad one.
 
-Propose new items as a change to the checklist file for a human to approve; don't silently add them. Use the `misses-to-rules` skill when the source is a set of missed bugs.
+Propose new items as a change to the checklist file for a human to approve; don't silently add them. When the source is a set of missed bugs, the `misses-to-rules` skill in the `team-review` plugin does this end to end.
 
 ## Hygiene
 

@@ -15,8 +15,8 @@ Small changes are easy to review, debug and revert. If the diff mixes unrelated 
 
 - Commands that ran and their results (tests, lint, types, build) — from `pre-pr-check` if used.
 - End-to-end evidence from the project's `verify` skill: screenshots, responses, logs.
-- Review results from `review-loop`: counts and anything left open with a reason.
-- Risk output from `risk-tier`.
+- Review results from `/code-review`: counts and anything left open with a reason.
+- Risk output from `risk-tier` (team-review plugin), if used.
 
 If something wasn't run, say so in the write-up.
 

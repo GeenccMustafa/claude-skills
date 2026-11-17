@@ -1,10 +1,16 @@
 {
   "name": "review",
-  "version": "0.1.0",
-  "description": "Skills for reviewing code at agent volume while spending human attention where the risk is: REVIEW.md, a converging review loop, risk-based approval tiers, PR write-ups, reviewer evals, repo gates and code explainers.",
+  "version": "0.2.0",
+  "description": "Lightweight review helpers that work with the built-in /code-review: a REVIEW.md that tells the reviewer what failure looks like, and evidence-backed PR write-ups.",
   "author": {
     "name": "Mustafa Genç"
   },
   "license": "MIT",
-  "keywords": ["code-review", "review", "risk", "pull-request", "evals"]
+  "keywords": [
+    "code-review",
+    "review",
+    "risk",
+    "pull-request",
+    "evals"
+  ]
 }

@@ -11,7 +11,7 @@ Flaky tests train agents to rerun instead of fix, and they hide real bugs. The r
 
 - Adding `sleep`/`wait(ms)`/arbitrary timeouts
 - Wrapping in retries or marking it "retry until pass"
-- `skip`/`xfail`/`.only`-ing it away without a decision
+- `skip`/`xfail` without a tracked issue, or committing a `.only` that silently drops the rest of the suite
 - Loosening the assertion until it can't fail
 
 ## 1. Reproduce
@@ -45,7 +45,7 @@ Check the usual suspects:
 
 ## 4. If the root cause can't be found
 
-Delete the test rather than keep a liar in the suite, and record:
+Don't keep a liar in the required suite. Either quarantine it (move it out of the required checks, with a linked issue and an owner) or delete it. Either way, record:
 
 - what behavior it was covering,
 - what was tried and the observed failure rate,

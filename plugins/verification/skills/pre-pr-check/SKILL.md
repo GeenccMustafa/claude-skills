@@ -1,6 +1,6 @@
 ---
 name: pre-pr-check
-description: Run the cheap local checks (format, lint, types, tests, build, then the project's verify skill) before committing or opening a pull request, fix what fails for up to three rounds, then escalate to a human, and stamp the commit with how it was verified. Use before any commit or PR, or when the user says "check before pushing", "make sure it's green", or "is this ready".
+description: Run the cheap local checks (format, lint, types, tests, build, then the project's verify skill) before committing or opening a pull request, fix what fails for up to three rounds, then escalate to a human, and stamp the commit with how it was verified. Use when the user asks to check a change before pushing or opening a PR ("check before pushing", "make sure it's green", "is this ready"), not on every commit.
 ---
 
 # pre-pr-check
@@ -29,10 +29,11 @@ For each failing check:
 
 If the **same check still fails after three rounds**, stop. Summarize for the user what fails, what you tried, and your best hypothesis. Failures are the signal that a person needs to look.
 
-## 3. Review the diff in fresh context
+## 3. Optional: review the diff
 
+Only if the user asks for a review, or the change is large or risky:
 - If the repo has a reliability checklist, run the `reliability-checklist` skill on the diff and fix Important findings.
-- Have a subagent that hasn't seen the authoring conversation review the diff against its intent (the `review-loop` skill in the review plugin, or `/code-review`). Fix Important findings, and stop at its three-round cap.
+- Run `/code-review` on the diff. Fix Important findings; don't loop on Nits.
 
 ## 4. Stamp the commit
 

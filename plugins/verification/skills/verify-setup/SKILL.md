@@ -56,7 +56,7 @@ Use this template:
 ```markdown
 ---
 name: verify
-description: Verify a change in <project> end to end before committing. Boots <system>, drives the affected flows and reports evidence. Use before every commit or PR.
+description: Verify a change in <project> end to end before committing. Boots <system>, drives the affected flows and reports evidence. Use after changing user-visible behavior in <project>, before opening a PR, or when asked to check that it works.
 ---
 
 # verify

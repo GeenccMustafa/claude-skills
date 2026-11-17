@@ -48,4 +48,4 @@ Review depth: Standard
 Suggestions: put behind a flag to drop to Low; split migration into its own PR
 ```
 
-Keep the reasons concrete (paths and kinds of change). This output feeds the Risk section in `pr-writeup` and the depth in `review-loop`.
+Keep the reasons concrete (paths and kinds of change). This output feeds the Risk section in `pr-writeup` and the effort level you pick for `/code-review`.

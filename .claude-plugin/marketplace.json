@@ -4,15 +4,15 @@
     "name": "Mustafa Genç"
   },
   "metadata": {
-    "description": "Personal Claude Code skills, starting with a verification toolkit.",
-    "version": "0.1.0"
+    "description": "Personal Claude Code skills for verification, code review and engineering judgment.",
+    "version": "0.2.0"
   },
   "plugins": [
     {
       "name": "verification",
       "source": "./plugins/verification",
-      "description": "Skills that give Claude evidence-based feedback loops: end-to-end verify skills, property and differential tests, diff-triggered reliability checks, and turning misses into rules.",
-      "version": "0.1.0",
+      "description": "Skills that give Claude evidence-based feedback loops: a project verify skill that runs the real app, property and differential tests, flaky-test triage, diff-triggered reliability checks and a pre-PR check.",
+      "version": "0.2.0",
       "category": "testing",
       "keywords": [
         "verification",
@@ -25,8 +25,8 @@
     {
       "name": "review",
       "source": "./plugins/review",
-      "description": "Skills for reviewing code at agent volume while spending human attention where the risk is: REVIEW.md, a converging review loop, risk-based approval tiers, PR write-ups, reviewer evals, repo gates and code explainers.",
-      "version": "0.1.0",
+      "description": "Lightweight review helpers that work with the built-in /code-review: a REVIEW.md that tells the reviewer what failure looks like, and evidence-backed PR write-ups.",
+      "version": "0.2.0",
       "category": "code-review",
       "keywords": [
         "code-review",
@@ -39,17 +39,30 @@
     {
       "name": "critical-thinking",
       "source": "./plugins/critical-thinking",
-      "description": "Skills for evaluating arguments, claims and decisions: critical questions for arguments, assumptions, evidence, rival causes and fallacies, plus judgment and decision tools against cognitive biases — bias checks, outside-view estimates, premortems, structured judgment, framing checks and self-critique.",
-      "version": "0.2.0",
+      "description": "Reasoning tools for engineering decisions: argument and self-critique, bias and option checks, rival causes for debugging and incidents, outside-view estimates and premortems.",
+      "version": "0.3.0",
       "category": "productivity",
       "keywords": [
         "critical-thinking",
         "reasoning",
-        "arguments",
-        "evidence",
         "decision-making",
         "cognitive-bias",
-        "forecasting"
+        "estimation",
+        "debugging"
+      ]
+    },
+    {
+      "name": "team-review",
+      "source": "./plugins/team-review",
+      "description": "Review governance for teams that merge many agent-written PRs: risk-based approval tiers, review-gate audits, reviewer evals built from incidents, and turning recurring misses into rules. Assumes CODEOWNERS, several reviewers and an incident history.",
+      "version": "0.1.0",
+      "category": "code-review",
+      "keywords": [
+        "code-review",
+        "governance",
+        "risk",
+        "evals",
+        "incidents"
       ]
     }
   ]

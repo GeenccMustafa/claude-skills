@@ -1,7 +1,7 @@
 {
   "name": "critical-thinking",
-  "version": "0.2.0",
-  "description": "Skills for evaluating arguments, claims and decisions: critical questions for arguments, assumptions, evidence, rival causes and fallacies, plus judgment and decision tools against cognitive biases — bias checks, outside-view estimates, premortems, structured judgment, framing checks and self-critique.",
+  "version": "0.3.0",
+  "description": "Reasoning tools for engineering decisions: argument and self-critique, bias and option checks, rival causes for debugging and incidents, outside-view estimates and premortems.",
   "author": {
     "name": "Mustafa Genç"
   },
@@ -9,10 +9,9 @@
   "keywords": [
     "critical-thinking",
     "reasoning",
-    "arguments",
-    "evidence",
     "decision-making",
     "cognitive-bias",
-    "forecasting"
+    "estimation",
+    "debugging"
   ]
 }

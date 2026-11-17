@@ -42,7 +42,7 @@ For each case, recreate the repo at review time (`git worktree add <dir> <pr_hea
 - **Recall per stage**: raw findings → after verification vote → final posted review. A drop between stages means the pipeline is losing bugs it found.
 - **False positives**: findings on clean cases that would have led someone to make a harmful change.
 - **Severity**: did real bugs get tagged Important rather than Nit?
-- **Rounds-to-pass** on recent real PRs (see `review-loop`).
+- **Rounds-to-pass** on recent real PRs: how many review rounds it took to reach a clean pass.
 
 ## 4. Measure noise on live PRs
 

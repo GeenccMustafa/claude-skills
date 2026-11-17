@@ -11,7 +11,7 @@ description: Write or tune a repo's REVIEW.md, the short file that tells an AI r
 
 - Existing `CLAUDE.md`, `REVIEW.md`, `CODEOWNERS`, contributing docs.
 - Recent human review comments: `gh pr list --state merged --limit 30`, then `gh api repos/{owner}/{repo}/pulls/{n}/comments`. Group repeated comments — they are the first rules.
-- Reverts and incident fixes (see `misses-to-rules` in the verification plugin).
+- Reverts and incident fixes (see `misses-to-rules` in the team-review plugin).
 - Directory layout: which areas are critical, which are generated or vendored.
 
 ## 2. Write it — keep it short
@@ -54,7 +54,7 @@ Rules for the content:
 
 ## 3. Check that the reviewer follows it
 
-A REVIEW.md that the reviewer ignores is worse than none. Run the reviewer (e.g. `/code-review` or the `review-loop` skill) on 3–5 recent merged PRs and check:
+A REVIEW.md that the reviewer ignores is worse than none. Run the reviewer (e.g. `/code-review`) on 3–5 recent merged PRs and check:
 
 - Did it respect the nit cap and the skip paths?
 - Did every finding have file and line evidence?
