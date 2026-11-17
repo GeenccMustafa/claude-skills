@@ -11,13 +11,13 @@ Example-based tests check what the author thought might go wrong. Property tests
 
 | Language | Library |
 |---|---|
-| JS / TS | `fast-check` |
-| Python | `hypothesis` |
-| Rust | `proptest` (or `quickcheck`) |
-| Go | `testing/quick`, `rapid` |
-| Java / Kotlin | `jqwik`, `kotest-property` |
-| Elixir | `StreamData` |
-| Swift | `SwiftCheck` |
+| JS / TS | [`fast-check`](https://fast-check.dev/) |
+| Python | [`hypothesis`](https://hypothesis.readthedocs.io/en/latest/) |
+| Rust | [`proptest`](https://proptest-rs.github.io/proptest/) (or [`quickcheck`](https://github.com/BurntSushi/quickcheck)) |
+| Go | [`testing/quick`](https://pkg.go.dev/testing/quick), [`rapid`](https://github.com/flyingmutant/rapid) |
+| Java / Kotlin | [`jqwik`](https://jqwik.net/), [`kotest-property`](https://kotest.io/docs/proptest/property-based-testing.html) |
+| Elixir | [`StreamData`](https://hexdocs.pm/stream_data/) |
+| Swift | [`SwiftCheck`](https://github.com/typelift/SwiftCheck) |
 
 Use the one already in the project if present. Otherwise add it as a dev dependency and wire it into the existing test runner.
 
@@ -45,6 +45,45 @@ List candidates with a one-line statement each and confirm the important ones wi
 - One property per test, named after the statement (`roundTripsAnyValidInvoice`).
 - Keep the default run fast (e.g. 100–1000 cases); allow a higher count via env var for CI or nightly.
 - Make failures reproducible: log or pin the seed, and let the library shrink to a minimal counterexample.
+
+### Example: Python with Hypothesis
+
+```python
+# conftest.py — fast by default, thorough in CI: HYPOTHESIS_PROFILE=ci pytest
+import os
+from hypothesis import settings
+
+settings.register_profile("default", max_examples=200)
+settings.register_profile("ci", max_examples=2000, print_blob=True)
+settings.load_profile(os.getenv("HYPOTHESIS_PROFILE", "default"))
+```
+
+```python
+# test_invoice.py
+from decimal import Decimal
+from hypothesis import given, example, strategies as st
+
+from invoice import Invoice, LineItem, parse_invoice, serialize_invoice
+
+money = st.decimals(min_value=0, max_value=10**6, places=2)
+line_items = st.builds(LineItem, name=st.text(), quantity=st.integers(0, 1000), unit_price=money)
+invoices = st.builds(Invoice, items=st.lists(line_items, max_size=50))
+
+@given(invoices)
+def test_round_trips_any_invoice(inv):
+    assert parse_invoice(serialize_invoice(inv)) == inv
+
+@given(invoices)
+@example(Invoice(items=[]))  # a counterexample found earlier, kept as a permanent regression
+def test_total_equals_sum_of_line_items(inv):
+    assert inv.total == sum((i.quantity * i.unit_price for i in inv.items), Decimal(0))
+```
+
+Notes:
+- `st.builds(...)` composes domain objects from smaller strategies; `st.text()` already includes unicode and empty strings.
+- Hypothesis shrinks failures automatically and replays them from its local example database (`.hypothesis/`). Add `.hypothesis/` to `.gitignore`; keep important counterexamples with `@example` instead.
+- `print_blob=True` prints a `@reproduce_failure(...)` line in CI output that reproduces the exact failing case locally.
+- See the [Hypothesis docs](https://hypothesis.readthedocs.io/en/latest/) for stateful testing (`RuleBasedStateMachine`), which fits invariants over sequences of operations.
 
 ## 5. When a property fails
 
