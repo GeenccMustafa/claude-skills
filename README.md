@@ -7,6 +7,7 @@ Personal [Claude Code](https://code.claude.com) skills, packaged as a plugin mar
 ```bash
 /plugin marketplace add GeenccMustafa/claude-skills
 /plugin install verification@claude-skills
+/plugin install review@claude-skills
 ```
 
 Or from a local clone:
@@ -33,12 +34,28 @@ Skills that give Claude evidence-based feedback loops, so you review evidence in
 | [`flaky-test-triage`](plugins/verification/skills/flaky-test-triage/SKILL.md) | Fixes flaky tests at the root cause — no sleeps, retries or skips; delete and document if unfixable. |
 | [`pre-pr-check`](plugins/verification/skills/pre-pr-check/SKILL.md) | Runs cheap checks first, stops after three failed rounds, and stamps commits with `Verified-by:`. |
 
+### `review`
+
+Skills for reviewing code at the volume agents produce it, spending human attention where the risk is. Inspired by [How the Claude Code team does code review](https://claude.dev/blog/solving-code-review-at-anthropic/).
+
+| Skill | What it does |
+|---|---|
+| [`review-md`](plugins/review/skills/review-md/SKILL.md) | Writes or tunes a short REVIEW.md (what failure looks like, nit cap, skip paths, evidence, output format) and checks the reviewer follows it. |
+| [`review-loop`](plugins/review/skills/review-loop/SKILL.md) | Fresh-context parallel review with a verifier vote, Important/Nit/Pre-existing tags, and convergence rules: three-round cap, diff-only re-review, no repeats. |
+| [`risk-tier`](plugins/review/skills/risk-tier/SKILL.md) | Classifies a change as low/medium/high from the change itself and says how many human approvals and how deep a review it needs. |
+| [`pr-writeup`](plugins/review/skills/pr-writeup/SKILL.md) | Writes a PR description with evidence-backed Testing, Risk and How to revert sections for the requester to sign off. |
+| [`reviewer-eval`](plugins/review/skills/reviewer-eval/SKILL.md) | Builds an eval from incidents, reverts and clean PRs; measures recall per stage, false positives, comment outcomes and rounds-to-pass. |
+| [`review-gates-setup`](plugins/review/skills/review-gates-setup/SKILL.md) | Audits a GitHub repo's review layers (CI, AI and security review, CODEOWNERS, branch protection, merge queue, rollback) and proposes missing gates. |
+| [`code-explainer`](plugins/review/skills/code-explainer/SKILL.md) | Explains one slice of the codebase as it is today, with file:line references and an optional diagram. |
+
 ## Principles
 
 - **Verification means running the change.** End-to-end evidence beats passing unit tests.
 - **Changes can't modify their own checks.** Gating rules are read from the default branch.
 - **Failures are the signal for humans.** Three rounds, then escalate.
 - **Misses become rules; rules get pruned.**
+- **The change sets the risk tier, not the author.** Human attention goes where the risk is.
+- **Review has to converge.** Cap rounds, re-review only new diffs, fix whole bug classes.
 
 ## Layout
 
@@ -46,6 +63,9 @@ Skills that give Claude evidence-based feedback loops, so you review evidence in
 .claude-plugin/marketplace.json
 plugins/
   verification/
+    .claude-plugin/plugin.json
+    skills/<skill-name>/SKILL.md
+  review/
     .claude-plugin/plugin.json
     skills/<skill-name>/SKILL.md
 ```

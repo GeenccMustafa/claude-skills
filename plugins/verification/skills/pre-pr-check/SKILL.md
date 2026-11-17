@@ -29,9 +29,10 @@ For each failing check:
 
 If the **same check still fails after three rounds**, stop. Summarize for the user what fails, what you tried, and your best hypothesis. Failures are the signal that a person needs to look.
 
-## 3. Check the diff against known risks
+## 3. Review the diff in fresh context
 
-If the repo has a reliability checklist, run the `reliability-checklist` skill on the diff and fix Important findings.
+- If the repo has a reliability checklist, run the `reliability-checklist` skill on the diff and fix Important findings.
+- Have a subagent that hasn't seen the authoring conversation review the diff against its intent (the `review-loop` skill in the review plugin, or `/code-review`). Fix Important findings, and stop at its three-round cap.
 
 ## 4. Stamp the commit
 
