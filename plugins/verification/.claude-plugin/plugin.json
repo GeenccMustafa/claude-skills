@@ -1,0 +1,10 @@
+{
+  "name": "verification",
+  "version": "0.1.0",
+  "description": "Skills that give Claude evidence-based feedback loops: end-to-end verify skills, property and differential tests, diff-triggered reliability checks, and turning misses into rules.",
+  "author": {
+    "name": "Mustafa Genç"
+  },
+  "license": "MIT",
+  "keywords": ["verification", "testing", "e2e", "property-testing", "code-review"]
+}

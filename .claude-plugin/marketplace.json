@@ -1,0 +1,20 @@
+{
+  "name": "claude-skills",
+  "owner": {
+    "name": "Mustafa Genç"
+  },
+  "metadata": {
+    "description": "Personal Claude Code skills, starting with a verification toolkit.",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "verification",
+      "source": "./plugins/verification",
+      "description": "Skills that give Claude evidence-based feedback loops: end-to-end verify skills, property and differential tests, diff-triggered reliability checks, and turning misses into rules.",
+      "version": "0.1.0",
+      "category": "testing",
+      "keywords": ["verification", "testing", "e2e", "property-testing", "code-review"]
+    }
+  ]
+}
