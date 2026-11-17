@@ -43,7 +43,7 @@ Whenever the argument claims X caused Y, list other plausible explanations.
 Check what the numbers actually measure, which average is used, missing baselines, and whether the numbers prove the conclusion or something nearby.
 
 ### 10. What significant information is omitted?
-Every argument is incomplete. Ask what would change your judgment if you knew it:
+Every argument is incomplete, and a coherent story feels convincing however little information it rests on. Ask what would change your judgment if you knew it:
 - the strongest counterarguments and contrary evidence,
 - other definitions of key terms,
 - other values or perspectives,

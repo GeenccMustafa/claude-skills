@@ -14,7 +14,13 @@
       "description": "Skills that give Claude evidence-based feedback loops: end-to-end verify skills, property and differential tests, diff-triggered reliability checks, and turning misses into rules.",
       "version": "0.1.0",
       "category": "testing",
-      "keywords": ["verification", "testing", "e2e", "property-testing", "code-review"]
+      "keywords": [
+        "verification",
+        "testing",
+        "e2e",
+        "property-testing",
+        "code-review"
+      ]
     },
     {
       "name": "review",
@@ -22,15 +28,29 @@
       "description": "Skills for reviewing code at agent volume while spending human attention where the risk is: REVIEW.md, a converging review loop, risk-based approval tiers, PR write-ups, reviewer evals, repo gates and code explainers.",
       "version": "0.1.0",
       "category": "code-review",
-      "keywords": ["code-review", "review", "risk", "pull-request", "evals"]
+      "keywords": [
+        "code-review",
+        "review",
+        "risk",
+        "pull-request",
+        "evals"
+      ]
     },
     {
       "name": "critical-thinking",
       "source": "./plugins/critical-thinking",
-      "description": "Skills for evaluating arguments and claims with a structured set of critical questions: full argument analysis, hidden assumptions, evidence and statistics, rival causes, fallacies, and strong-sense critique of your own conclusions.",
-      "version": "0.1.0",
+      "description": "Skills for evaluating arguments, claims and decisions: critical questions for arguments, assumptions, evidence, rival causes and fallacies, plus judgment and decision tools against cognitive biases — bias checks, outside-view estimates, premortems, structured judgment, framing checks and self-critique.",
+      "version": "0.2.0",
       "category": "productivity",
-      "keywords": ["critical-thinking", "reasoning", "arguments", "evidence", "decision-making"]
+      "keywords": [
+        "critical-thinking",
+        "reasoning",
+        "arguments",
+        "evidence",
+        "decision-making",
+        "cognitive-bias",
+        "forecasting"
+      ]
     }
   ]
 }

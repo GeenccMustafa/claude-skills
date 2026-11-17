@@ -39,6 +39,8 @@ Write the strongest case *against* your conclusion, as its best advocate would, 
 | **Wishful thinking** | Would I reach the same conclusion if I didn't want it to be true? |
 | **Discomfort with questioning** | Am I avoiding a question because the answer might be inconvenient? |
 
+For a decision, estimate or forecast, also run `bias-check` (anchoring, base rates, overconfidence, framing, sunk costs), and use `outside-view-estimate` or `premortem` when the conclusion depends on a plan going well.
+
 ## 5. Consider alternative conclusions
 
 Avoid either/or. List other reasonable conclusions and the conditions under which each would be right ("If the deadline is fixed, A; if quality matters most, B"). Decide whether your original conclusion still wins, should be narrowed, or should be dropped.

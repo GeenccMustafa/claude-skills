@@ -1,10 +1,18 @@
 {
   "name": "critical-thinking",
-  "version": "0.1.0",
-  "description": "Skills for evaluating arguments and claims with a structured set of critical questions: full argument analysis, hidden assumptions, evidence and statistics, rival causes, fallacies, and strong-sense critique of your own conclusions.",
+  "version": "0.2.0",
+  "description": "Skills for evaluating arguments, claims and decisions: critical questions for arguments, assumptions, evidence, rival causes and fallacies, plus judgment and decision tools against cognitive biases — bias checks, outside-view estimates, premortems, structured judgment, framing checks and self-critique.",
   "author": {
     "name": "Mustafa Genç"
   },
   "license": "MIT",
-  "keywords": ["critical-thinking", "reasoning", "arguments", "evidence", "decision-making"]
+  "keywords": [
+    "critical-thinking",
+    "reasoning",
+    "arguments",
+    "evidence",
+    "decision-making",
+    "cognitive-bias",
+    "forecasting"
+  ]
 }

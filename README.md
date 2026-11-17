@@ -51,7 +51,7 @@ Skills for reviewing code at the volume agents produce it, spending human attent
 
 ### `critical-thinking`
 
-Skills for deciding what is worth believing and acting on, built around a fixed sequence of critical questions. Based on the framework in *Asking the Right Questions: A Guide to Critical Thinking* by M. Neil Browne and Stuart M. Keeley.
+Skills for deciding what is worth believing and acting on. The argument skills follow the critical questions in *Asking the Right Questions* by M. Neil Browne and Stuart M. Keeley; the judgment and decision skills draw on *Thinking, Fast and Slow* by Daniel Kahneman.
 
 | Skill | What it does |
 |---|---|
@@ -61,6 +61,11 @@ Skills for deciding what is worth believing and acting on, built around a fixed 
 | [`rival-causes`](plugins/critical-thinking/skills/rival-causes/SKILL.md) | Tests causal claims against rival explanations; useful for incidents, debugging and metric movements. |
 | [`fallacy-check`](plugins/critical-thinking/skills/fallacy-check/SKILL.md) | Finds common reasoning fallacies, quotes them, and judges how much they matter to the conclusion. |
 | [`self-critique`](plugins/critical-thinking/skills/self-critique/SKILL.md) | Strong-sense critique of your own position: steelman the other side, check thinking speed bumps, consider alternative conclusions. |
+| [`bias-check`](plugins/critical-thinking/skills/bias-check/SKILL.md) | Audits a judgment or decision for predictable errors of fast thinking (anchoring, availability, base-rate neglect, halo, overconfidence, sunk cost…) and says when intuition can be trusted. |
+| [`outside-view-estimate`](plugins/critical-thinking/skills/outside-view-estimate/SKILL.md) | Estimates from a reference class of similar past cases instead of the plan, and pulls intuitive predictions back toward the average. |
+| [`premortem`](plugins/critical-thinking/skills/premortem/SKILL.md) | Assumes the plan has failed, collects independent failure stories, and turns the top ones into mitigations and tripwires. |
+| [`structured-judgment`](plugins/critical-thinking/skills/structured-judgment/SKILL.md) | Compares candidates, vendors or options by scoring independent dimensions separately, combining them with a simple formula, and consulting intuition last. |
+| [`choice-framing`](plugins/critical-thinking/skills/choice-framing/SKILL.md) | Checks risky choices for framing effects, loss aversion, sunk costs and rare-event distortion, and turns repeated decisions into a risk policy. |
 
 ## Principles
 
@@ -80,7 +85,8 @@ The skills are written in our own words, based on these sources:
 |---|---|
 | Addy Osmani, [*How the Claude Code team thinks about verification*](https://x.com/addyosmani/status/2122590683055993308), X article, 17 Nov 2026 | `verification` plugin |
 | Addy Osmani, Morgan Westlee Lunt and Qing Wang, [*How the Claude Code team does code review*](https://claude.dev/blog/solving-code-review-at-anthropic/), claude.dev blog, 15 Oct 2026 | `review` plugin, and the fresh-context review step in `pre-pr-check` |
-| M. Neil Browne, Stuart M. Keeley and Mary Vasudeva, *Asking the Right Questions: A Guide to Critical Thinking*, 12th ed., Pearson, 2016 (ISBN 978-0-13-442563-4) | `critical-thinking` plugin |
+| M. Neil Browne, Stuart M. Keeley and Mary Vasudeva, *Asking the Right Questions: A Guide to Critical Thinking*, 12th ed., Pearson, 2016 (ISBN 978-0-13-442563-4) | `critical-thinking`: `argument-analysis`, `assumption-finder`, `evidence-check`, `rival-causes`, `fallacy-check`, `self-critique` |
+| Daniel Kahneman, *Thinking, Fast and Slow*, Farrar, Straus and Giroux, 2011 | `critical-thinking`: `bias-check`, `outside-view-estimate`, `premortem`, `structured-judgment`, `choice-framing`, and additions to `evidence-check`, `self-critique` and `argument-analysis` |
 | [Hypothesis documentation](https://hypothesis.readthedocs.io/en/latest/) and the docs of the other libraries linked in the skill | `property-tests` skill |
 
 ## Layout

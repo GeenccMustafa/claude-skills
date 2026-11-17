@@ -67,3 +67,18 @@ Scans reasoning for common fallacies such as attacking the person, straw person,
 
 **self-critique**
 Turns the critical questions on your own position: steelmans the other side, checks for thinking speed bumps like wishful thinking and belief perseverance, weighs alternative conclusions, and rewrites the argument for a critical reader.
+
+**bias-check**
+Audits a judgment, estimate or decision for predictable errors of fast, intuitive thinking: judging only from what's visible, answering an easier question, anchoring, availability, base-rate neglect, small samples, halo, overconfidence, hindsight, framing, loss aversion and sunk costs. Says when an intuition can be trusted and what single fix reduces each error.
+
+**outside-view-estimate**
+Makes or checks an estimate by starting from how similar past cases actually turned out (the team's own history where possible), adjusting modestly for specifics, and pulling intuitive predictions toward the average when the evidence is weak. Counters the planning fallacy.
+
+**premortem**
+Assumes a nearly final plan has failed, gathers specific failure stories independently from several perspectives, and turns the top ones into mitigations, tripwires or a changed plan.
+
+**structured-judgment**
+Compares candidates, vendors, tools or designs by scoring a few independent dimensions one at a time from factual evidence, keeping judges independent, combining scores with a simple formula, and consulting intuition only at the end.
+
+**choice-framing**
+Checks a risky choice for framing effects by restating it as gains and losses, removing sunk costs, weighing rare events by their real probability, and treating repeated decisions under one consistent risk policy.

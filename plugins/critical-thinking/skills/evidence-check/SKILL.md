@@ -15,11 +15,11 @@ Separate claims of fact (could be checked) from opinions (preferences, values). 
 
 | Evidence type | Main risk | Ask |
 |---|---|---|
-| **Intuition / gut feeling** | Unexamined, unshareable | What would show it is wrong? Treat as a hypothesis only. |
+| **Intuition / gut feeling** | Unexamined, unshareable; confidence reflects a coherent story, not accuracy | Is the domain regular enough to predict, and did this person get long practice with fast feedback in it? If not, treat it as a hypothesis only. |
 | **Personal experience** | One case, memory distortions, unusual circumstances | Was it typical? What did the person expect to see? |
 | **Case examples / anecdotes** | Vivid, picked to persuade, unrepresentative | How were cases selected? How many counter-cases exist? |
 | **Testimonials / reviews** | Selective, may be paid, not experts on causes | Who chose them? What's the full distribution of reviews? Any incentive? |
-| **Authority / experts** | Outside their field, conflicts of interest, experts disagree | Expert in *this*? Track record? Do other experts agree? Who funds them? |
+| **Authority / experts** | Outside their field, conflicts of interest, experts disagree, confident long-range forecasts in unpredictable domains | Expert in *this*? Checked track record, not reputation? Do other experts agree? Who funds them? |
 | **Personal observation** | Observers see what they expect | Several independent observers? Conditions controlled? |
 | **Surveys / questionnaires** | Leading wording, who responded, honesty | Exact question wording? Sample and response rate? Incentive to answer a certain way? |
 | **Research studies** | Quality varies, single studies mislead, findings get oversimplified | See checklist below. |
@@ -42,6 +42,9 @@ Separate claims of fact (could be checked) from opinions (preferences, values). 
 - **Measurement errors**: did the definition or method change over time? Are different things being compared as if they were the same?
 - **Concluding one thing, proving another**: the number may be accurate but measure something adjacent to the conclusion (more sign-ups ≠ more retained users; fewer reported bugs ≠ fewer bugs).
 - **Omitted numbers**: relative vs absolute change ("doubled" from 1 to 2), missing baseline or control, missing denominator, cherry-picked time window, truncated chart axes, survivorship.
+- **Small samples**: small groups produce extreme results by chance — the best and the worst rates both come from the smallest samples. Ask for the sample size before explaining an extreme result.
+- **Base rates**: a vivid description of a case ("this looks like a breakout product") should be weighed against how often things in that category actually succeed. Start from the base rate.
+- **Regression to the mean**: an unusually good or bad result is usually followed by a more ordinary one, with or without any intervention.
 - Always ask for the actual numbers behind *most, many, significantly, faster, leading*.
 
 ## Output
