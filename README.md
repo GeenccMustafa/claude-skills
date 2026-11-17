@@ -8,6 +8,7 @@ Personal [Claude Code](https://code.claude.com) skills, packaged as a plugin mar
 /plugin marketplace add GeenccMustafa/claude-skills
 /plugin install verification@claude-skills
 /plugin install review@claude-skills
+/plugin install critical-thinking@claude-skills
 ```
 
 Or from a local clone:
@@ -48,6 +49,19 @@ Skills for reviewing code at the volume agents produce it, spending human attent
 | [`review-gates-setup`](plugins/review/skills/review-gates-setup/SKILL.md) | Audits a GitHub repo's review layers (CI, AI and security review, CODEOWNERS, branch protection, merge queue, rollback) and proposes missing gates. |
 | [`code-explainer`](plugins/review/skills/code-explainer/SKILL.md) | Explains one slice of the codebase as it is today, with file:line references and an optional diagram. |
 
+### `critical-thinking`
+
+Skills for deciding what is worth believing and acting on, built around a fixed sequence of critical questions. Based on the framework in *Asking the Right Questions: A Guide to Critical Thinking* by M. Neil Browne and Stuart M. Keeley.
+
+| Skill | What it does |
+|---|---|
+| [`argument-analysis`](plugins/critical-thinking/skills/argument-analysis/SKILL.md) | Full pass over an argument: issue, conclusion, reasons, ambiguity, assumptions, fallacies, evidence, rival causes, statistics, omissions and alternative conclusions. |
+| [`assumption-finder`](plugins/critical-thinking/skills/assumption-finder/SKILL.md) | Surfaces hidden value and descriptive assumptions and ambiguous terms behind a plan or argument, and how to test the critical ones. |
+| [`evidence-check`](plugins/critical-thinking/skills/evidence-check/SKILL.md) | Grades evidence by type (experience, examples, authority, surveys, research, analogies) and checks statistics for deception. |
+| [`rival-causes`](plugins/critical-thinking/skills/rival-causes/SKILL.md) | Tests causal claims against rival explanations; useful for incidents, debugging and metric movements. |
+| [`fallacy-check`](plugins/critical-thinking/skills/fallacy-check/SKILL.md) | Finds common reasoning fallacies, quotes them, and judges how much they matter to the conclusion. |
+| [`self-critique`](plugins/critical-thinking/skills/self-critique/SKILL.md) | Strong-sense critique of your own position: steelman the other side, check thinking speed bumps, consider alternative conclusions. |
+
 ## Principles
 
 - **Verification means running the change.** End-to-end evidence beats passing unit tests.
@@ -56,6 +70,18 @@ Skills for reviewing code at the volume agents produce it, spending human attent
 - **Misses become rules; rules get pruned.**
 - **The change sets the risk tier, not the author.** Human attention goes where the risk is.
 - **Review has to converge.** Cap rounds, re-review only new diffs, fix whole bug classes.
+- **Pan for gold, don't soak like a sponge.** Question claims before accepting them, including your own.
+
+## Sources
+
+The skills are written in our own words, based on these sources:
+
+| Source | Used for |
+|---|---|
+| Addy Osmani, [*How the Claude Code team thinks about verification*](https://x.com/addyosmani/status/2122590683055993308), X article, 17 Nov 2026 | `verification` plugin |
+| Addy Osmani, Morgan Westlee Lunt and Qing Wang, [*How the Claude Code team does code review*](https://claude.dev/blog/solving-code-review-at-anthropic/), claude.dev blog, 15 Oct 2026 | `review` plugin, and the fresh-context review step in `pre-pr-check` |
+| M. Neil Browne, Stuart M. Keeley and Mary Vasudeva, *Asking the Right Questions: A Guide to Critical Thinking*, 12th ed., Pearson, 2016 (ISBN 978-0-13-442563-4) | `critical-thinking` plugin |
+| [Hypothesis documentation](https://hypothesis.readthedocs.io/en/latest/) and the docs of the other libraries linked in the skill | `property-tests` skill |
 
 ## Layout
 
@@ -66,6 +92,9 @@ plugins/
     .claude-plugin/plugin.json
     skills/<skill-name>/SKILL.md
   review/
+    .claude-plugin/plugin.json
+    skills/<skill-name>/SKILL.md
+  critical-thinking/
     .claude-plugin/plugin.json
     skills/<skill-name>/SKILL.md
 ```

@@ -47,3 +47,23 @@ Audits a GitHub repo's review pipeline layer by layer (instructions and hooks, C
 
 **code-explainer**
 Explains one slice of the codebase as it is today: purpose, entry points, data flow, key files with file:line references, invariants and how to change it safely, with an optional diagram.
+
+## critical-thinking
+
+**argument-analysis**
+Evaluates an argument with a fixed sequence of critical questions: issue and conclusion, reasons, ambiguous words, value and descriptive assumptions, fallacies, evidence, rival causes, statistics, omitted information and reasonable alternative conclusions. Ends with a verdict and what would change it.
+
+**assumption-finder**
+Surfaces the unstated value priorities, beliefs about how the world works, and ambiguous key terms that a plan or argument depends on. Rates each one and says how to test the critical ones cheaply.
+
+**evidence-check**
+Grades each piece of evidence by type (intuition, experience, examples, testimonials, authority, observation, surveys, research, analogies) and checks statistics for misleading averages, missing baselines and numbers that prove something other than the conclusion.
+
+**rival-causes**
+Tests a causal claim by generating rival explanations (reverse direction, common cause, coincidence, other changes in the same window) and comparing them against the evidence. Useful for incidents, debugging and metric changes.
+
+**fallacy-check**
+Scans reasoning for common fallacies such as attacking the person, straw person, false dilemma, slippery slope and begging the question. Quotes each one, explains it, and judges how much it actually weakens the conclusion.
+
+**self-critique**
+Turns the critical questions on your own position: steelmans the other side, checks for thinking speed bumps like wishful thinking and belief perseverance, weighs alternative conclusions, and rewrites the argument for a critical reader.

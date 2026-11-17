@@ -23,6 +23,14 @@
       "version": "0.1.0",
       "category": "code-review",
       "keywords": ["code-review", "review", "risk", "pull-request", "evals"]
+    },
+    {
+      "name": "critical-thinking",
+      "source": "./plugins/critical-thinking",
+      "description": "Skills for evaluating arguments and claims with a structured set of critical questions: full argument analysis, hidden assumptions, evidence and statistics, rival causes, fallacies, and strong-sense critique of your own conclusions.",
+      "version": "0.1.0",
+      "category": "productivity",
+      "keywords": ["critical-thinking", "reasoning", "arguments", "evidence", "decision-making"]
     }
   ]
 }
