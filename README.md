@@ -9,6 +9,7 @@ Personal [Claude Code](https://code.claude.com) skills, packaged as a plugin mar
 /plugin install verification@claude-skills
 /plugin install review@claude-skills
 /plugin install critical-thinking@claude-skills
+/plugin install cloud-governance@claude-skills
 ```
 
 `team-review` is for teams with CODEOWNERS, several reviewers and an incident history. Install it only if that's you:
@@ -72,6 +73,14 @@ Reasoning tools for engineering decisions: design docs, library choices, estimat
 | [`outside-view-estimate`](plugins/critical-thinking/skills/outside-view-estimate/SKILL.md) | Estimates from a reference class of similar past cases instead of the plan, and pulls intuitive predictions back toward the average. |
 | [`premortem`](plugins/critical-thinking/skills/premortem/SKILL.md) | Assumes the plan has failed, collects independent failure stories, and turns the top ones into mitigations and tripwires. |
 
+### `cloud-governance`
+
+A project standard for cloud work, set on day one as templates and policies the project reuses. Based on the security and governance unit of Microsoft Learn's *Describe the benefits of using cloud services* module.
+
+| Skill | What it does |
+|---|---|
+| [`governance-baseline`](plugins/cloud-governance/skills/governance-baseline/SKILL.md) | Picks IaaS/PaaS/SaaS per component, then writes a GOVERNANCE.md, IaC modules with secure defaults, policy-as-code guardrails, compliance auditing, drift detection and automatic patching, and proves the guardrails fire. |
+
 ## Principles
 
 - **Verification means running the change.** End-to-end evidence beats passing unit tests.
@@ -91,6 +100,7 @@ The skills are written in our own words, based on these sources:
 | Addy Osmani, Morgan Westlee Lunt and Qing Wang, [*How the Claude Code team does code review*](https://claude.dev/blog/solving-code-review-at-anthropic/), claude.dev blog, 15 Oct 2026 | `review` and `team-review` plugins |
 | M. Neil Browne, Stuart M. Keeley and Mary Vasudeva, *Asking the Right Questions: A Guide to Critical Thinking*, 12th ed., Pearson, 2016 (ISBN 978-0-13-442563-4) | `critical-thinking`: `argument-analysis`, `rival-causes` |
 | Daniel Kahneman, *Thinking, Fast and Slow*, Farrar, Straus and Giroux, 2011 | `critical-thinking`: `decision-check`, `outside-view-estimate`, `premortem`, and additions to `argument-analysis` |
+| Microsoft Learn, [*Describe the benefits of security and governance in the cloud*](https://learn.microsoft.com/en-gb/training/modules/describe-benefits-use-cloud-services/4-security-governance-cloud), *Describe the benefits of using cloud services* module | `cloud-governance`: `governance-baseline` |
 | [Hypothesis documentation](https://hypothesis.readthedocs.io/en/latest/) and the docs of the other libraries linked in the skill | `property-tests` skill |
 
 ## Layout
@@ -102,6 +112,7 @@ plugins/
   review/
   team-review/
   critical-thinking/
+  cloud-governance/
     .claude-plugin/plugin.json
     skills/<skill-name>/SKILL.md
 ```

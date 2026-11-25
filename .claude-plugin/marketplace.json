@@ -4,8 +4,8 @@
     "name": "Mustafa Genç"
   },
   "metadata": {
-    "description": "Personal Claude Code skills for verification, code review and engineering judgment.",
-    "version": "0.2.0"
+    "description": "Personal Claude Code skills for verification, code review, engineering judgment and cloud governance.",
+    "version": "0.3.0"
   },
   "plugins": [
     {
@@ -63,6 +63,20 @@
         "risk",
         "evals",
         "incidents"
+      ]
+    },
+    {
+      "name": "cloud-governance",
+      "source": "./plugins/cloud-governance",
+      "description": "A security and governance baseline for new cloud projects: service-model choice, secure IaC templates, policy-as-code guardrails, compliance auditing and automatic patching.",
+      "version": "0.1.0",
+      "category": "security",
+      "keywords": [
+        "cloud",
+        "governance",
+        "security",
+        "compliance",
+        "infrastructure-as-code"
       ]
     }
   ]

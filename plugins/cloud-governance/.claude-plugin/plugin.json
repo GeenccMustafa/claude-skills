@@ -1,0 +1,10 @@
+{
+  "name": "cloud-governance",
+  "version": "0.1.0",
+  "description": "A security and governance baseline for new cloud projects: service-model choice, secure IaC templates, policy-as-code guardrails, compliance auditing and automatic patching.",
+  "author": {
+    "name": "Mustafa Genç"
+  },
+  "license": "MIT",
+  "keywords": ["cloud", "governance", "security", "compliance", "infrastructure-as-code"]
+}

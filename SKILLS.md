@@ -60,3 +60,8 @@ Makes or checks an estimate by starting from how similar past cases actually tur
 
 **premortem**
 Assumes a nearly final plan has failed, gathers specific failure stories independently from several perspectives, and turns the top ones into mitigations, tripwires or a changed plan.
+
+## cloud-governance
+
+**governance-baseline**
+Sets a cloud project's security and governance baseline at the start. Chooses IaaS, PaaS or SaaS per component by weighing control against who patches, then writes a one-page GOVERNANCE.md, IaC modules whose defaults are compliant, policy-as-code guardrails, ongoing compliance auditing and drift detection, automatic patching and edge DDoS protection. Tests each guardrail against a deliberately bad resource and changes live settings only with approval.
